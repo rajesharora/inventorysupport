@@ -1,0 +1,40 @@
+<!-- templates/expense_dashboard.html -->
+{% extends "admin_base.html" %}
+
+{% block title %}Expense Dashboard{% endblock %}
+
+{% block content %}
+<div class="container shifted-content">
+    <h2>Expense Dashboard</h2>
+
+    <!-- Options -->
+    <div class="button-group mt-4">
+        <a href="{{ url_for('add_expense_type') }}" class="form-button-secondary btn-space">Add Expense Type</a>
+        <a href="{{ url_for('add_expense_factors') }}" class="form-button-secondary btn-space">Add Expense Factors</a>
+        <a href="{{ url_for('add_expense') }}" class="form-button-secondary btn-space">Add Expense</a>
+        <a href="{{ url_for('admin_dashboard') }}" class="form-button-secondary btn-space">Go to Admin Dashboard</a>
+    </div>
+
+    <!-- Display expenses in a table -->
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th>Expense Type Title</th>
+                <th>Factor Name</th>
+                <th>Expense Title</th>
+                <th>Expense Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{ expense['expense_type_title'] }}</td>
+                <td>{{ expense['factorname'] }}</td>
+                <td>{{ expense['expensetitle'] }}</td>
+                <td>{{ expense['expensedetail'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

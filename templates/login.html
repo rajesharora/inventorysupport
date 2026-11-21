@@ -1,5 +1,4 @@
-
-{% extends 'app.html' %}
+{% extends 'base.html' %}
 {% block content %}
 
 <div class="container">
@@ -16,7 +15,6 @@
         </div>
     {% endif %}
     {% endwith %}
-
 
   <form action="/login" method="POST">
     {{ form.hidden_tag() }}
@@ -45,8 +43,9 @@
                 </ul>
         {% endif %}
     </div>
-    {{ form.submit(class="btn btn-dark mt-4")}}
-    <a href="/register" class="btn btn-secondary mt-4">Register page</a>
+
+    {{ form.submit(class="form-button") }}
+    <a href="/register" class="form-button-secondary">Register page</a>
   </form>
 </div>
 
